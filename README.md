@@ -1,10 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+## `yarn start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -12,12 +12,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+## `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode. 
+Tests in this repo are just a sample. I have described my testing approach in the section [below](#testing-approach).
 
-### `yarn build`
+## `yarn build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -25,44 +25,25 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#Architecture approach
 
-### `yarn eject`
+I have used react-final-form to build this application. React final form provides functionality like state management, validation, submission, subscription etc. 
+For this application I decided to not use Redux to manage form state as it will add lot of overload to the application. For more complex application it will be a better approach to use Redux for application state management.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+For styling of the application, I have used bootstrap's compiled css. Based on the scale and complexity of any application, we can choose to write our own styles utlisiing the power of Sass. 
+There are other options like css-in-js, Emotions, Styled Components; which will provide more control and modularity to the application styling.  
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#Known issues
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Autolookup fields (`userLookup`, `firstName` and `lastName`) are sort of stateless components, they have there own state. Thus validations are not enabled for those 3 fields. 
+In a production ready app, I will manage the state and enable these fields to add to the form state before submitting.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Form submission will require CORS plugin and will not work from localhost unless we add some browser extention to enable CORS requests. 
 
-## Learn More
+Webhook.site url is temporary, it needs to be replaced with a working URL form webhook.site to test form submission functionality.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#Testing approach
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+I will use [Jest](https://jestjs.io/) for snapshot testing for visual elements of the application and use [Cypress](https://www.cypress.io/) for end to end testing of functionality.
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Utils functions like `jsonGet` and `jsonPost` are ideal candidates for end to end test cases. Whereas visual elements link `SimpleTextInput`, `buttons` are more suited for unit and snapshot testing purposes.
