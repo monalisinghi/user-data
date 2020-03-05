@@ -48,13 +48,17 @@ export default class Wizard extends React.Component {
             {activePage}
             <div className="buttons">
               {page > 0 && (
-                <button type="button" onClick={this.previous}>
+                <button type="button" className="btn btn-light mt-4" onClick={this.previous}>
                   « Previous
                 </button>
               )}
-              {!isLastPage && <button type="submit">Next »</button>}
+              {!isLastPage && (
+                <button className="btn btn-primary mt-4" type="submit">
+                  Next »
+                </button>
+              )}
               {isLastPage && (
-                <button type="submit" disabled={submitting}>
+                <button type="submit" className="btn btn-primary mt-4" disabled={submitting}>
                   Submit
                 </button>
               )}
