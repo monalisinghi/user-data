@@ -25,7 +25,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
-#Architecture approach
+# Architecture approach
 
 I have used react-final-form to build this application. React final form provides functionality like state management, validation, submission, subscription etc. 
 For this application I decided to not use Redux to manage form state as it will add lot of overload to the application. For more complex application it will be a better approach to use Redux for application state management.
@@ -33,7 +33,7 @@ For this application I decided to not use Redux to manage form state as it will 
 For styling of the application, I have used bootstrap's compiled css. Based on the scale and complexity of any application, we can choose to write our own styles utlisiing the power of Sass. 
 There are other options like css-in-js, Emotions, Styled Components; which will provide more control and modularity to the application styling.  
 
-#Known issues
+# Known issues
 
 Autolookup fields (`userLookup`, `firstName` and `lastName`) are sort of stateless components, they have there own state. Thus validations are not enabled for those 3 fields. 
 In a production ready app, I will manage the state and enable these fields to add to the form state before submitting.
@@ -42,7 +42,7 @@ Form submission will require CORS plugin and will not work from localhost unless
 
 Webhook.site url is temporary, it needs to be replaced with a working URL form webhook.site to test form submission functionality.
 
-#Testing approach
+# Testing approach
 
 I will use [Jest](https://jestjs.io/) for snapshot testing for visual elements of the application and use [Cypress](https://www.cypress.io/) for end to end testing of functionality.
 
