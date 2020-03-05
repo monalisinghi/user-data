@@ -1,7 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
+import {render} from 'react-dom';
+import {Field} from 'react-final-form';
 import './App.css';
-
+import Wizard from './components/Wizard';
+import Error from './components/Error';
 function App() {
   return (
     <div className="App">
@@ -10,12 +12,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
           Learn React
         </a>
       </header>
