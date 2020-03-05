@@ -5,12 +5,13 @@ import './App.css';
 import Wizard from './components/Wizard';
 import Error from './components/Error';
 import Condition from './components/Condition';
+import AutoLookup from './components/AutoLookup';
 
 const isRequired = (value) => (value ? undefined : 'Required');
 
 const onSubmit = async (values) => {
   function jsonPost() {
-    return fetch('https://webhook.site/0fc2fa63-7fc5-4fdd-b12e-9de53f7df8b0', {
+    return fetch('https://webhook.site/a5945cc3-55c7-46a3-83ed-acd0456e6f2b', {
       body: JSON.stringify(values),
       headers: {'content-type': 'application/json'},
       method: 'POST'
@@ -65,16 +66,11 @@ function App() {
                   </div>
                 </div>
               </Condition>
-              {/*<div className="form-row">*/}
-              {/*<div className="col-12">*/}
-              {/*<Field*/}
-              {/*label="User Lookup"*/}
-              {/*name="userLookup"*/}
-              {/*id="userLookup"*/}
-              {/*component={AutoLookup}*/}
-              {/*/>*/}
-              {/*</div>*/}
-              {/*</div>*/}
+              <div className="form-row">
+                <div className="col-12">
+                  <Field label="User Lookup" name="userLookup" id="userLookup" component={AutoLookup} />
+                </div>
+              </div>
             </Wizard.Page>
             <Wizard.Page
               validate={(values) => {
