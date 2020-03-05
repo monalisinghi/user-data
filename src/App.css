@@ -67,3 +67,16 @@
     color: red;
     font-weight: bold;
 }
+#react-autowhatever-1 ul{
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 4px;
+    background: white;
+    left: 6px;
+    right: 6px;
+    z-index: 10;
+    height: 120px;
+    overflow: auto;
+    border: 1px solid gray;
+}
